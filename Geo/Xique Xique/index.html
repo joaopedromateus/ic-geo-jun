@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+         <style>
+            html, body {
+                background-color: #ffffff;
+            }
+            .ol-control button {
+                background-color: #f8f8f8 !important;
+                color: #000000 !important;
+                border-radius: 0px !important;
+            }
+            .ol-zoom, .geolocate, .gcd-gl-control .ol-control {
+                background-color: rgba(255,255,255,.4) !important;
+                padding: 3px !important;
+            }
+            .ol-scale-line {
+                background: none !important;
+            }
+            .ol-scale-line-inner {
+                border: 2px solid #f8f8f8 !important;
+                border-top: none !important;
+                background: rgba(255, 255, 255, 0.5) !important;
+                color: black !important;
+            }
+            </style>
+            <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+    
+    
+    
+            /* #map{
+                padding-top: 100px;
+            } */
+            
+    
+            /* Layout Header */
+    
+    
+    
+    header nav a {
+      text-decoration: none;
+      font-family: 'Merriweather';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 35px;
+      color: #ffffff;
+      padding: 30px;
+      transition: color 0.4s;
+      padding: 30px;
+      transition: color 0.4s;
+    }
+    
+    header nav a:hover {
+      color: rgb(0, 0, 0);
+    }
+    
+    nav.top {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      height: 90px;
+    }
+    
+    
+    
+    #containertop{
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      height: 90px;
+      background: linear-gradient(#0b3665,#1c4f88);
+      
+    }
+    
+    .logo {
+      height: 88px;
+      width: auto;
+      padding-right: 20px;
+    }
+     
+    /* .titulo{
+      width: 700px;
+        padding-left: 3px;
+    } */
+    
+     #tituloo{
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 35px;
+    color: #ffffff;
+    margin-left: -150px;
+    padding-right: 40px;
+    
+    }
+    
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;"> 
+            <ul id="menu-barra-temp" style="list-style:none;">
+              <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED"><a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a></li> 
+              <li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
+            </ul>
+          </div>
+            
+  
+            <!-- Fim Barra Superior GOV -->
+            <!-- Header -->
+          <header>
+                    <div id="containertop">
+                    <div>
+                      <img class="logo" src="../Img/logo_portal.png" alt="Logo UFBA"/>
+                  </div>
+                  <div class="titulo"><p id="tituloo">Atlas do Estado da Bahia</p></div>
+                    <nav class="top">
+                      <div class="esquerdanav">
+                      
+                        <a href="../index-projeto/index_acervo.html">Páginal Inicial</a>
+                        <a href="../index-projeto/mapainicial.html">Mapa Interativo</a>
+                        <a href="../index-projeto/index_acervo.html">Cartas Topográficas</a>
+                        <a href="../index-projeto/indexcontato.html">Contato</a>
+                        
+                      </div>                 
+                    </nav>
+  
+                    </div>
+          </header>
+  
+           <!-- Fim Header -->
+          <div id="map">
+             <!-- Teste dropdown -->
+             <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Selecione uma Carta<br> 1:100.000
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="../Aguas Formosas/mapaaguasformosas.html">Águas Formosas - SE-24-V-C-III</a>
+                  <a class="dropdown-item" href="../Salvador/mapasalvador.html">Salvador - SD-24-X-A-VI</a>
+                  <a class="dropdown-item" href="/Geo/Baia de Todos os Santos/mapabaiadetodosossant.html">Baía de Todos os Santos - SD-24-X-A-IV</a>
+                  <a class="dropdown-item" href="../Alagoinhas/mapaalagoinhas.html">Alagoinhas - SD-24-D-II</a>
+                  <a class="dropdown-item" href="../index-projeto/index_acervo.html">Porto Seguro X!! 3II 5II 3V334</a>
+              </div>
+            </div> 
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/HD_MASSA_DAGUA_1.js"></script>
+        <script src="data/HD_MID_CURSO_DAGUA_2.js"></script>
+        <script src="data/LM_UF_3.js"></script>
+        <script src="data/LM_MUNICIPIO_2007_4.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:27, minZoom:1
+        }).fitBounds([[-10.884184212242785,-43.1172904002505],[-10.40497210894319,-42.2375462038617]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 27,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
+        function pop_HD_MASSA_DAGUA_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PK'] !== null ? autolinker.link(feature.properties['PK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nm_nng'] !== null ? autolinker.link(feature.properties['nm_nng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['cd_fluxo'] !== null ? autolinker.link(feature.properties['cd_fluxo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PRIMARYIND'] !== null ? autolinker.link(feature.properties['PRIMARYIND'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_HD_MASSA_DAGUA_1_0() {
+            return {
+                pane: 'pane_HD_MASSA_DAGUA_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HD_MASSA_DAGUA_1');
+        map.getPane('pane_HD_MASSA_DAGUA_1').style.zIndex = 401;
+        map.getPane('pane_HD_MASSA_DAGUA_1').style['mix-blend-mode'] = 'normal';
+        var layer_HD_MASSA_DAGUA_1 = new L.geoJson(json_HD_MASSA_DAGUA_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HD_MASSA_DAGUA_1',
+            layerName: 'layer_HD_MASSA_DAGUA_1',
+            pane: 'pane_HD_MASSA_DAGUA_1',
+            onEachFeature: pop_HD_MASSA_DAGUA_1,
+            style: style_HD_MASSA_DAGUA_1_0,
+        });
+        bounds_group.addLayer(layer_HD_MASSA_DAGUA_1);
+        map.addLayer(layer_HD_MASSA_DAGUA_1);
+        function pop_HD_MID_CURSO_DAGUA_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nome'] !== null ? autolinker.link(feature.properties['nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fluxo'] !== null ? autolinker.link(feature.properties['fluxo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PRIMARYIND'] !== null ? autolinker.link(feature.properties['PRIMARYIND'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_HD_MID_CURSO_DAGUA_2_0() {
+            return {
+                pane: 'pane_HD_MID_CURSO_DAGUA_2',
+                opacity: 1,
+                color: 'rgba(255,158,23,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HD_MID_CURSO_DAGUA_2');
+        map.getPane('pane_HD_MID_CURSO_DAGUA_2').style.zIndex = 402;
+        map.getPane('pane_HD_MID_CURSO_DAGUA_2').style['mix-blend-mode'] = 'normal';
+        var layer_HD_MID_CURSO_DAGUA_2 = new L.geoJson(json_HD_MID_CURSO_DAGUA_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HD_MID_CURSO_DAGUA_2',
+            layerName: 'layer_HD_MID_CURSO_DAGUA_2',
+            pane: 'pane_HD_MID_CURSO_DAGUA_2',
+            onEachFeature: pop_HD_MID_CURSO_DAGUA_2,
+            style: style_HD_MID_CURSO_DAGUA_2_0,
+        });
+        bounds_group.addLayer(layer_HD_MID_CURSO_DAGUA_2);
+        map.addLayer(layer_HD_MID_CURSO_DAGUA_2);
+        function pop_LM_UF_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PK'] !== null ? autolinker.link(feature.properties['PK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nome'] !== null ? autolinker.link(feature.properties['nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['codigoUf'] !== null ? autolinker.link(feature.properties['codigoUf'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['siglaUf'] !== null ? autolinker.link(feature.properties['siglaUf'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PRIMARYIND'] !== null ? autolinker.link(feature.properties['PRIMARYIND'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LM_UF_3_0() {
+            return {
+                pane: 'pane_LM_UF_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,113,72,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LM_UF_3');
+        map.getPane('pane_LM_UF_3').style.zIndex = 403;
+        map.getPane('pane_LM_UF_3').style['mix-blend-mode'] = 'normal';
+        var layer_LM_UF_3 = new L.geoJson(json_LM_UF_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LM_UF_3',
+            layerName: 'layer_LM_UF_3',
+            pane: 'pane_LM_UF_3',
+            onEachFeature: pop_LM_UF_3,
+            style: style_LM_UF_3_0,
+        });
+        bounds_group.addLayer(layer_LM_UF_3);
+        map.addLayer(layer_LM_UF_3);
+        function pop_LM_MUNICIPIO_2007_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PK'] !== null ? autolinker.link(feature.properties['PK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nm_nng'] !== null ? autolinker.link(feature.properties['nm_nng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['geocodigo'] !== null ? autolinker.link(feature.properties['geocodigo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UF'] !== null ? autolinker.link(feature.properties['UF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PRIMARYIND'] !== null ? autolinker.link(feature.properties['PRIMARYIND'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LM_MUNICIPIO_2007_4_0() {
+            return {
+                pane: 'pane_LM_MUNICIPIO_2007_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,207,80,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LM_MUNICIPIO_2007_4');
+        map.getPane('pane_LM_MUNICIPIO_2007_4').style.zIndex = 404;
+        map.getPane('pane_LM_MUNICIPIO_2007_4').style['mix-blend-mode'] = 'normal';
+        var layer_LM_MUNICIPIO_2007_4 = new L.geoJson(json_LM_MUNICIPIO_2007_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LM_MUNICIPIO_2007_4',
+            layerName: 'layer_LM_MUNICIPIO_2007_4',
+            pane: 'pane_LM_MUNICIPIO_2007_4',
+            onEachFeature: pop_LM_MUNICIPIO_2007_4,
+            style: style_LM_MUNICIPIO_2007_4_0,
+        });
+        bounds_group.addLayer(layer_LM_MUNICIPIO_2007_4);
+        map.addLayer(layer_LM_MUNICIPIO_2007_4);
+        map.createPane('pane_XiqueXique_modificado_5');
+        map.getPane('pane_XiqueXique_modificado_5').style.zIndex = 405;
+        var img_XiqueXique_modificado_5 = 'data/XiqueXique_modificado_5.png';
+        var img_bounds_XiqueXique_modificado_5 = [[-11.150211941299998,-43.05004990001326],[-10.443868740079838,-42.450651400810216]];
+        var layer_XiqueXique_modificado_5 = new L.imageOverlay(img_XiqueXique_modificado_5,
+                                              img_bounds_XiqueXique_modificado_5,
+                                              {pane: 'pane_XiqueXique_modificado_5'});
+        bounds_group.addLayer(layer_XiqueXique_modificado_5);
+        map.addLayer(layer_XiqueXique_modificado_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{"Xique-Xique_modificado": layer_XiqueXique_modificado_5,'<img src="legend/LM_MUNICIPIO_2007_4.png" /> LM_MUNICIPIO_2007': layer_LM_MUNICIPIO_2007_4,'<img src="legend/LM_UF_3.png" /> LM_UF': layer_LM_UF_3,'<img src="legend/HD_MID_CURSO_DAGUA_2.png" /> HD_MID_CURSO_DAGUA': layer_HD_MID_CURSO_DAGUA_2,'<img src="legend/HD_MASSA_DAGUA_1.png" /> HD_MASSA_DAGUA': layer_HD_MASSA_DAGUA_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>

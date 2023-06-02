@@ -1,0 +1,52 @@
+
+
+.topnome{
+width: 100vw;
+height: 60px;
+background-color: #13447a;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+p.nomecarta{
+  font-size: 30px;
+  color: antiquewhite;
+}
+
+.toptitulo{
+  margin-top: 20px;
+  font-size: 16px;
+  color: inherit;
+  display: flex;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  line-height: inherit;
+  background-color: lightgray;
+  }
+
+p.toptext{
+  margin-left: 8px;
+  font-size: 1.2em;
+}
+
+#containermid.container {
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+  margin-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  p.textt{
+    font-size: 1.2em;
+  }
+
+  .imginferior{
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
